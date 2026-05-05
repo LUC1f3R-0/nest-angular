@@ -1,7 +1,10 @@
+import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 const typeOrmConfig = (configService: ConfigService): TypeOrmModuleOptions => {
+  const logger = new Logger('database');
+
   return {
     type: 'postgres',
 
@@ -20,6 +23,8 @@ const typeOrmConfig = (configService: ConfigService): TypeOrmModuleOptions => {
     retryAttempts: 0,
     retryDelay: 0,
   };
+
+  logger.log('db connection true');
 };
 
 export default typeOrmConfig;
