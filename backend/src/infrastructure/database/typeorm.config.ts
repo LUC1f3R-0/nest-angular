@@ -24,7 +24,6 @@ const typeOrmConfig = (configService: ConfigService): TypeOrmModuleOptions => {
     retryDelay: 0,
   };
 
-  logger.log('db connection true');
 };
 
 export default typeOrmConfig;
